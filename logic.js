@@ -23,11 +23,20 @@ function searchParamaters(){
     })
     // append the article to .results
     .then(function (article) {
-      console.log(article.response.docs[0].snippet);
+      console.log(article.response.docs[0].headline);
       console.log(article.response.docs);
       // grabs and shows the headline from the api
       $(".results").append("<h1>" + article.response.docs[0].headline.main + "</h1>");
-    })    
+    })  
+    // clear search parameters and all articles
+    $("#clearbtn").click(function(){
+      event.preventDefault();
+      $("#searchterm").val("");
+      $("#numrecords").val("");
+      $("#startyear").val("")
+      $("#endyear").val("")
+      $(".results").empty();
+    })
 
 
 
