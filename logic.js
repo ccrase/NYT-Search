@@ -7,12 +7,12 @@ function searchParamaters(){
     var numRecords = $("#numrecords").val();
     console.log(numRecords);
     // dates MUST be in this order YEAR/MONTH/DAY
-    var startDate = $("#startyear").val()
+    var startDate = "&begin_date=" + $("#startyear").val().replace("/", "").replace("/", "")
     console.log(startDate);
-    var endDate = $("#endyear").val()
+    var endDate = "&end_date=" + $("#endyear").val().replace("/", "").replace("/", "")
     console.log(endDate);
     // input the values into the api
-    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + searchTerm + "&begin_date=" + startDate + "&end_date=" + endDate + "&api-key=vXGoED21N1KQlY0X6gO14XIUGePoT56I&";
+    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + searchTerm + startDate + endDate + "&api-key=vXGoED21N1KQlY0X6gO14XIUGePoT56I&";
 
     // call ajax function 
     $.ajax({
